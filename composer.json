@@ -1,0 +1,33 @@
+{
+    "name": "caring-circles/p2p-care-reminder-bot",
+    "description": "Library containing reusable shared components.",
+    "license": "AGPL-3.0",
+    "authors": [
+        {
+            "name": "Othmane Moustaouda",
+            "email": "web@othmanemoustaouda.io"
+        }
+    ],
+    "require": {
+        "php": "8.*",
+        "ext-json": "*",
+        "ext-pdo": "*",
+        "caring-circles/p2p-care-lib": "dev-main",
+        "monolog/monolog": "^2.2",
+        "vlucas/phpdotenv": "^5.3"
+    },
+    "require-dev": {
+        "phpunit/phpunit": "^9.5",
+        "roave/security-advisories": "dev-latest"
+    },
+    "autoload": {
+        "psr-4": {
+            "CaringCircles\\P2pCare\\": "src/"
+        }
+    },
+    "config": {
+        "preferred-install": "dist",
+        "sort-packages": true,
+        "optimize-autoloader": true
+    }
+}

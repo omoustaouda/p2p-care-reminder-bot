@@ -1,0 +1,31 @@
+version: '3.8'
+
+services:
+  web:
+    image: php:8.0-alpine
+    # This docker instance is run as local unprivileged user instead of root (avoiding file permission issues)
+    # `$HOST_USER` is defined in Makefile
+    env_file:
+      - .env
+    user: ${HOST_USER}
+    container_name: p2p-care-lib
+    networks:
+      - caring-circles
+    environment:
+      - COMPOSER_HOME=/tmp/composer
+    init: true
+    volumes:
+      - ./:/var/app/
+      - composer:/tmp/composer
+    working_dir: /var/app/
+
+networks:
+  caring-circles:
+    name: caring-circles
+
+volumes:
+  composer:
+    name: composer_cache
+    driver_opts:
+      type: "tmpfs"
+      device: "tmpfs"
