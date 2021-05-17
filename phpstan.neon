@@ -1,0 +1,10 @@
+parameters:
+  bootstrapFiles:
+    - src/bootstrap.php
+    - src/container.php
+  paths:
+    - src
+    - tests
+    - db
+  excludes_analyse:
+    - vendor/*/vendor/*

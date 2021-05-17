@@ -1,8 +1,8 @@
 <?php
 
-namespace CaringCircles\P2pCare\Service;
+namespace CaringCircles\P2pCareReminder\Service;
 
-class FirstService
+class PlaceholderService
 {
     public function sayHi(): string
     {

@@ -15,8 +15,7 @@ tests:
 
 # PHP Static Analysis Tool (https://github.com/phpstan/phpstan). Check for errors and potential bugs.
 run-phpstan:
-	docker run --rm -v $$(pwd):/app phpstan/phpstan analyse /app/src --level 1
-	docker run --rm -v $$(pwd):/app phpstan/phpstan analyse /app/tests --level 1
+	docker-compose run web php vendor/bin/phpstan analyse src tests --level 3
 
 composer-install:
 	docker-compose run web composer install

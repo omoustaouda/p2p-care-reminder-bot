@@ -8,7 +8,7 @@ services:
     env_file:
       - .env
     user: ${HOST_USER}
-    container_name: p2p-care-lib
+    container_name: p2p-care-reminder-bot
     networks:
       - caring-circles
     environment:
