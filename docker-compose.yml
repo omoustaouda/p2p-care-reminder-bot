@@ -3,27 +3,37 @@ version: '3.8'
 services:
     web:
         image: php:8.0-alpine
-        # This docker instance is run as local unprivileged user instead of root (avoiding file permission issues)
+        container_name: p2p-care-reminder-bot
+        depends_on:
+            - db
+        # This docker instance runs as local unprivileged user instead of root (avoiding file permission issues)
         # `$HOST_USER` is defined in Makefile
         env_file:
             - .env
         user: ${HOST_USER}
-        container_name: p2p-care-reminder-bot
         networks:
-            - caring-circles
+            - p2p-care-reminder
         environment:
             docker: "true"
-        init: true
         command: php -S 127.0.0.1:8080 -t public
+        init: true
         volumes:
             - ./:/var/app/
             - composer:/tmp/composer
             - logs:/var/app/logs
         working_dir: /var/app/
 
+    db:
+        image: mariadb:10.6
+        restart: always
+        networks:
+            - p2p-care-reminder
+        env_file:
+            - .env
+
 networks:
-    caring-circles:
-        name: caring-circles
+    p2p-care-reminder:
+        name: p2p-care-reminder
 
 volumes:
     composer:
