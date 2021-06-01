@@ -33,6 +33,8 @@
     },
     "scripts": {
         "start": "php -S localhost:8080 -t public",
-        "test": "phpunit"
+        "post-install-cmd": [
+            "./vendor/bin/phinx migrate -e remote"
+        ]
     }
 }
