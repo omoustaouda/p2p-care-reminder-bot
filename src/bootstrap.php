@@ -44,3 +44,27 @@ function getLogger(): LoggerInterface
 {
     return get(LoggerInterface::class);
 }
+
+
+function env($key, $default = null)
+{
+    $value = getenv($key);
+
+    if ($value === false) {
+        return $default;
+    }
+
+    switch (mb_strtolower($value)) {
+        case 'false':
+        case '(false)':
+            return false;
+        case 'true':
+        case '(true)':
+            return true;
+        case 'null':
+        case '(null)':
+            return null;
+    }
+
+    return $value;
+}

@@ -18,10 +18,13 @@ run-phpstan:
 	docker-compose run web php vendor/bin/phpstan analyse src tests --level 3
 
 composer-install:
-	docker-compose run web composer install
+	docker run --rm -v $$(pwd):/app composer:2 composer install
+
+composer-update:
+	docker run --rm -v $$(pwd):/app composer:2 composer update
 
 composer-validate:
-	docker-compose run web composer validate
+	docker run --rm -v $$(pwd):/app composer:2 composer validate
 
 # .PHONY is a pseudo-target needed to re-trigger the commands execution
 # otherwise en error would be raised.

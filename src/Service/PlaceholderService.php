@@ -1,6 +1,6 @@
 <?php
 
-namespace CaringCircles\P2pCareReminder\Service;
+namespace P2pCareReminder\Service;
 
 class PlaceholderService
 {

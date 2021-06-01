@@ -2,7 +2,7 @@
 
 namespace CaringCircles\P2pCare\Tests\Unit\Service;
 
-use CaringCircles\P2pCareReminder\Service\PlaceholderService;
+use P2pCareReminder\Service\PlaceholderService;
 use PHPUnit\Framework\TestCase;
 
 class PlaceholderServiceTest extends TestCase

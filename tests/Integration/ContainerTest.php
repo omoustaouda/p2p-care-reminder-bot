@@ -1,8 +1,8 @@
 <?php
 
-namespace CaringCircles\P2pCareReminder\Tests\Integration\Service;
+namespace P2pCareReminder\Tests\Integration;
 
-use CaringCircles\P2pCareReminder\Service\PlaceholderService;
+use P2pCareReminder\Service\PlaceholderService;
 use Monolog\Logger;
 use PHPUnit\Framework\TestCase;
 
