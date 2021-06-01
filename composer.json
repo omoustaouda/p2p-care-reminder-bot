@@ -34,7 +34,7 @@
     "scripts": {
         "start": "php -S localhost:8080 -t public",
         "post-install-cmd": [
-            "./vendor/bin/phinx migrate -e remote"
+            "cp -v .env.example .env"
         ]
     }
 }

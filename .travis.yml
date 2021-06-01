@@ -1,25 +1,30 @@
 language: php
-php:
-  - 8.0
+dist: trusty
 
+matrix:
+  include:
+    - php: 8.0
+    - php: nightly
+
+  allow_failures:
+    - php: nightly
 env:
   global:
     # CC_TEST_REPORTER_ID=CodeClimate_ID_defined_in_Travis_settings
     - XDEBUG_MODE=coverage
 
 before_script:
-  - composer install
+  - composer install -n
   # Setup CodeClimate
   - curl -L https://codeclimate.com/downloads/test-reporter/test-reporter-latest-linux-amd64 > ./cc-test-reporter
   - chmod +x ./cc-test-reporter
   - ./cc-test-reporter before-build
 
 script: phpunit \
-    --verbose \
-    --testdox \
-    --coverage-clover build/logs/clover.xml
+  --verbose \
+  --testdox \
+  --coverage-clover build/logs/clover.xml
 
 after_script:
   # CodeClimate test coverage reporter
   - ./cc-test-reporter after-build -t clover --exit-code $TRAVIS_TEST_RESULT
-
