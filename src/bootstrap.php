@@ -66,13 +66,16 @@ function env($key, $default = null): mixed
     switch (mb_strtolower($value)) {
         case 'false':
         case '(false)':
-            return false;
+            $value = false;
+            break;
         case 'true':
         case '(true)':
-            return true;
+            $value = true;
+            break;
         case 'null':
         case '(null)':
-            return null;
+            $value = null;
+            break;
     }
 
     return $value;
