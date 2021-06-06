@@ -17,11 +17,10 @@ $dotEnv->load();
 const APP_NAME = 'p2p-care-reminder-bot';
 define(
     'APP_ROOT',
-    dirname(__DIR__ . '/..') . '/'
+    dirname(__DIR__, 1) . '/'
 );
 const LOG_FILE_PATH = APP_ROOT . 'logs/app.log';
-
-$appConfigService = new AppConfigService(APP_ROOT . '/config');
+$appConfigService = new AppConfigService(APP_ROOT . 'config');
 
 function getContainer(): ContainerInterface
 {
@@ -49,8 +48,14 @@ function getLogger(): LoggerInterface
     return get(LoggerInterface::class);
 }
 
+function config(string $configName = null): ?array
+{
+    /** @var AppConfigService $configService */
+    $configService = get(AppConfigService::class);
+    return $configService->getConfig($configName);
+}
 
-function env($key, $default = null)
+function env($key, $default = null): mixed
 {
     $value = getenv($key);
 

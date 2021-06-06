@@ -19,12 +19,10 @@ use Psr\Log\LoggerInterface;
 $tgConfig = require __DIR__ . '/../config/telegram.php';
 
 return [
-    'config' => static function () {
-        $appConfigService = new AppConfigService(APP_ROOT . 'config');
-        return $appConfigService->getConfig();
-    },
     PlaceholderService::class => DI\autowire(PlaceholderService::class),
-    AppConfigService::class => DI\autowire(AppConfigService::class),
+    AppConfigService::class => static function () {
+        return new AppConfigService(APP_ROOT . 'config');
+    },
     LoggerInterface::class => static function () {
         $logger = new Logger(APP_NAME);
         $logger->pushHandler(new StreamHandler('php://stdout', Logger::DEBUG));
