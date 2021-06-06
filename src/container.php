@@ -2,10 +2,11 @@
 declare(strict_types=1);
 
 use Longman\TelegramBot\Telegram;
-use P2pCareReminder\Service\PlaceholderService;
+use P2pCareReminder\Service\AppConfigService;
 use Monolog\Handler\RotatingFileHandler;
 use Monolog\Handler\StreamHandler;
 use Monolog\Logger;
+use P2pCareReminder\Service\PlaceholderService;
 use Psr\Log\LoggerInterface;
 
 /**
@@ -18,7 +19,12 @@ use Psr\Log\LoggerInterface;
 $tgConfig = require __DIR__ . '/../config/telegram.php';
 
 return [
+    'config' => static function () {
+        $appConfigService = new AppConfigService(APP_ROOT . 'config');
+        return $appConfigService->getConfig();
+    },
     PlaceholderService::class => DI\autowire(PlaceholderService::class),
+    AppConfigService::class => DI\autowire(AppConfigService::class),
     LoggerInterface::class => static function () {
         $logger = new Logger(APP_NAME);
         $logger->pushHandler(new StreamHandler('php://stdout', Logger::DEBUG));

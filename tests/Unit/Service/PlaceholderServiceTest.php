@@ -1,7 +1,8 @@
 <?php
 
-namespace CaringCircles\P2pCare\Tests\Unit\Service;
+namespace Tests\Unit\Service;
 
+use P2pCareReminder\Service\AppConfigService;
 use P2pCareReminder\Service\PlaceholderService;
 use PHPUnit\Framework\TestCase;
 

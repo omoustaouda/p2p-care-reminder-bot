@@ -1,9 +1,10 @@
 <?php
 
-namespace P2pCareReminder\Tests\Integration;
+namespace Tests\Integration;
 
-use P2pCareReminder\Service\PlaceholderService;
+use P2pCareReminder\Service\AppConfigService;
 use Monolog\Logger;
+use P2pCareReminder\Service\PlaceholderService;
 use PHPUnit\Framework\TestCase;
 
 class ContainerTest extends TestCase

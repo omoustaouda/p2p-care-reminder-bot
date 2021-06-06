@@ -2,20 +2,22 @@ version: '3.8'
 
 services:
     web:
-        image: php:8.0-alpine
+        build:
+            context: docker/php8.0-alpine
         container_name: p2p-care-reminder-bot
         depends_on:
             - db
+            - db_test
         # This docker instance runs as local unprivileged user instead of root (avoiding file permission issues)
         # `$HOST_USER` is defined in Makefile
         env_file:
             - .env
         user: ${HOST_USER}
-        networks:
-            - p2p-care-reminder
         environment:
             docker: "true"
-        command: php -S 127.0.0.1:8080 -t public
+        command: php -S 127.0.0.1:8888 -t public
+        ports:
+            - "8888:8888"
         init: true
         volumes:
             - ./:/var/app/
@@ -26,14 +28,19 @@ services:
     db:
         image: mariadb:10.6
         restart: always
-        networks:
-            - p2p-care-reminder
         env_file:
             - .env
+        environment:
+            MYSQL_RANDOM_ROOT_PASSWORD: "true"
 
-networks:
-    p2p-care-reminder:
-        name: p2p-care-reminder
+    db_test:
+        image: mariadb:10.6
+        restart: always
+        environment:
+            MYSQL_RANDOM_ROOT_PASSWORD: "true"
+            MYSQL_DATABASE: test
+            MYSQL_USER: test
+            MYSQL_PASSWORD: test
 
 volumes:
     composer:

@@ -2,10 +2,12 @@
 declare(strict_types=1);
 
 use DI\ContainerBuilder;
+use P2pCareReminder\Service\AppConfigService;
 use Psr\Container\ContainerInterface;
 use Psr\Log\LoggerInterface;
 
 require_once __DIR__ . '/../vendor/autoload.php';
+
 
 $dotEnv = Dotenv\Dotenv::createImmutable(__DIR__ . '/../');
 $requiredEnvVars = [];
@@ -18,6 +20,8 @@ define(
     dirname(__DIR__ . '/..') . '/'
 );
 const LOG_FILE_PATH = APP_ROOT . 'logs/app.log';
+
+$appConfigService = new AppConfigService(APP_ROOT . '/config');
 
 function getContainer(): ContainerInterface
 {

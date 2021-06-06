@@ -13,7 +13,6 @@ try {
     /** @var Telegram $telegram */
     $telegram = get(Telegram::class);
 
-
     /**
      * Connect the webhook URL with the specific bot
      *

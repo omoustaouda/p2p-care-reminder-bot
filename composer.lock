@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "2bec3fece747c345cff02e9512a0c2c1",
+    "content-hash": "66c9e170d1b7e1994dd1a2f7fa072308",
     "packages": [
         {
             "name": "caring-circles/p2p-care-lib",
