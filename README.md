@@ -3,7 +3,7 @@
 [![Maintainability](https://api.codeclimate.com/v1/badges/9397880447ea4a163aa2/maintainability)](https://codeclimate.com/github/omoustaouda/p2p-care-reminder-bot/maintainability)
 
 # P2P Care Reminder - Telegram bot
-This bot is meant to act as a reminder in groups actively doing p2p care practices.
+This bot is made to support as reminder groups that are actively doing p2p care practices.
 
 Each participant can write 2-3 topics relevant to them, where they would appreciate if someone from the group can check in with them about these specific topics. An example of the topics can be: 1. Sleeping early, 2. Cook more often, 3. Conclude that open project.
 

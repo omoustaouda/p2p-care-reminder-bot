@@ -16,8 +16,6 @@ use Psr\Log\LoggerInterface;
  * the needed dependencies are automatically injected for each class defined here.
  */
 
-$tgConfig = require __DIR__ . '/../config/telegram.php';
-
 return [
     PlaceholderService::class => DI\autowire(PlaceholderService::class),
     AppConfigService::class => static function () {
@@ -34,9 +32,11 @@ return [
         );
         return $logger;
     },
-    Telegram::class => static function () use ($tgConfig) {
+    Telegram::class => static function () {
+        $tgConfig = config('telegram');
+
         return new Telegram(
-            $tgConfig['apiKey'],
+            $tgConfig['botApiKey'],
             $tgConfig['botUsername']
         );
     }
