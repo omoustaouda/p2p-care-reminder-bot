@@ -17,9 +17,5 @@ class TelegramBotServiceTest extends TestCase
         $this->service = get(TelegramBotService::class);
     }
 
-    public function testSendMessage(): void
-    {
-        $this->service->sendMessage();
-    }
 
 }

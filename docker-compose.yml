@@ -22,7 +22,6 @@ services:
         volumes:
             - ./:/var/app/
             - composer:/tmp/composer
-            - logs:/var/app/logs
         working_dir: /var/app/
 
     db:

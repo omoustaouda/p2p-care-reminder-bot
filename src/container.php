@@ -6,7 +6,7 @@ use P2pCareReminder\Service\AppConfigService;
 use Monolog\Handler\RotatingFileHandler;
 use Monolog\Handler\StreamHandler;
 use Monolog\Logger;
-use P2pCareReminder\Service\PlaceholderService;
+use P2pCareReminder\Service\TelegramBotService;
 use Psr\Log\LoggerInterface;
 
 /**
@@ -17,7 +17,6 @@ use Psr\Log\LoggerInterface;
  */
 
 return [
-    PlaceholderService::class => DI\autowire(PlaceholderService::class),
     AppConfigService::class => static function () {
         return new AppConfigService(APP_ROOT . 'config');
     },
@@ -28,7 +27,7 @@ return [
         $logger->pushHandler(new RotatingFileHandler(
             LOG_FILE_PATH,
             30,
-            Logger::INFO)
+            Logger::INFO),
         );
         return $logger;
     },
@@ -37,7 +36,13 @@ return [
 
         return new Telegram(
             $tgConfig['botApiKey'],
-            $tgConfig['botUsername']
+            $tgConfig['botUsername'],
+        );
+    },
+    TelegramBotService::class => static function () {
+        return new TelegramBotService(
+            get(Telegram::class),
+            config('telegram'),
         );
     }
 ];
