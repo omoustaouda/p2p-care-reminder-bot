@@ -32,6 +32,7 @@ return [
             $tgConfig['botUsername'],
         );
         $tgClient->enableLimiter(['enabled' => true]);
+        $tgClient->addCommandsPath(__DIR__ . '/TelegramCommand/');
         return $tgClient;
     },
     TelegramBotService::class => static function () {
