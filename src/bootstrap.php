@@ -19,7 +19,6 @@ define(
     'APP_ROOT',
     dirname(__DIR__, 1) . '/'
 );
-const LOG_FILE_PATH = APP_ROOT . 'logs/app.log';
 $appConfigService = new AppConfigService(APP_ROOT . 'config');
 
 function getContainer(): ContainerInterface

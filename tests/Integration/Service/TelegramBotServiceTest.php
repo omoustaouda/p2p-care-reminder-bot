@@ -19,7 +19,6 @@ class TelegramBotServiceTest extends TestCase
         self::assertTrue(
             $this->service->unsetWebhook()
         );
-        sleep(2); // Prevent error: 429 Too Many Requests
     }
 
     public function testReconnectWebhook(): void
@@ -27,7 +26,6 @@ class TelegramBotServiceTest extends TestCase
         self::assertTrue(
             $this->service->connectWebhook()
         );
-        sleep(2); // Prevent error: 429 Too Many Requests
     }
 
     public function testSendMessage(): void
