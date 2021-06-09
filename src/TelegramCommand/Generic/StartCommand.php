@@ -20,7 +20,7 @@
  * @see https://core.telegram.org/bots#deep-linking
  */
 
-namespace P2pCareReminder\TelegramCommand;
+namespace P2pCareReminder\TelegramCommand\Generic;
 
 use Longman\TelegramBot\Commands\SystemCommand;
 use Longman\TelegramBot\Entities\ServerResponse;

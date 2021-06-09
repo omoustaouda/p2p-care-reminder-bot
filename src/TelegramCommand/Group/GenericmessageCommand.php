@@ -63,18 +63,8 @@ class GenericmessageCommand extends SystemCommand
         }
 
         // The chat photo was changed
-        if ($new_chat_photo = $message->getNewChatPhoto()) {
-            // Whatever...
-        }
-
-        // The chat title was changed
-        if ($new_chat_title = $message->getNewChatTitle()) {
-            // Whatever...
-        }
-
-        // A message has been pinned
-        if ($pinned_message = $message->getPinnedMessage()) {
-            // Whatever...
+        if ($message->getNewChatPhoto()) {
+            return $this->replyToChat('😍');
         }
 
         return Request::emptyResponse();

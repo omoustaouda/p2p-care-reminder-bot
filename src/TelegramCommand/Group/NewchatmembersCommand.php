@@ -54,7 +54,8 @@ class NewchatmembersCommand extends SystemCommand
         $members = $message->getNewChatMembers();
 
         if ($message->botAddedInChat()) {
-            return $this->replyToChat('Hi there, you BOT!');
+            // This bot has just entered a chat
+            return $this->replyToChat('Hi there!');
         }
 
         $member_names = [];

@@ -2,7 +2,6 @@
 
 namespace P2pCareReminder\Service;
 
-use Longman\TelegramBot\ChatAction;
 use Longman\TelegramBot\Exception\TelegramException;
 use Longman\TelegramBot\Request;
 use Longman\TelegramBot\Telegram;
@@ -35,11 +34,6 @@ class TelegramBotService
             return true;
         }
         return false;
-    }
-
-    public function handleUpdateNewUser(): void
-    {
-
     }
 
     public function connectWebhook(): bool

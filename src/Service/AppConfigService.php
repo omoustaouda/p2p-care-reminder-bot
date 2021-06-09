@@ -20,8 +20,8 @@ class AppConfigService
     public function loadConfig(): void
     {
         foreach (Finder::findFiles('*.php')->in($this->configDir) as $filePath => $file) {
-            /** @var $filePath string */
-            /** @var $file SplFileInfo */
+            /** @var string $filePath */
+            /** @var SplFileInfo $file */
 
             $configName = basename($filePath, '.php');
             $loadedConfig = include $filePath;
