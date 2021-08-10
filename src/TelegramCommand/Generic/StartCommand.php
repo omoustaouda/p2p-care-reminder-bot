@@ -1,13 +1,13 @@
 <?php
 
 /**
- * This file is part of the PHP Telegram Bot example-bot package.
+ * This file is based of the PHP Telegram Bot example-bot package.
  * https://github.com/php-telegram-bot/example-bot/
  *
  * (c) PHP Telegram Bot Team
+ * (c) 2021 - Othmane Moustaouda <web@othmanemoustaouda.io>
  *
- * For the full copyright and license information, please view the LICENSE_TelegramExampleBot
- * file that was distributed with this source code.
+ * Original license: `src/TelegramCommand/LICENSE_TelegramBotExample`
  */
 
 /**
@@ -28,6 +28,8 @@ use Longman\TelegramBot\Exception\TelegramException;
 
 class StartCommand extends SystemCommand
 {
+    public const REPLY_ON_START_COMMAND = "Hi there!\nType /help to see all commands!";
+
     /**
      * @var string
      */
@@ -64,9 +66,6 @@ class StartCommand extends SystemCommand
         // If you use deep-linking, get the parameter like this:
         // $deep_linking_parameter = $this->getMessage()->getText(true);
 
-        return $this->replyToChat(
-            'Hi there!' . PHP_EOL .
-            'Type /help to see all commands!'
-        );
+        return $this->replyToChat(self::REPLY_ON_START_COMMAND);
     }
 }

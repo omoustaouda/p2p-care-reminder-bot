@@ -1,13 +1,13 @@
 <?php
 
 /**
- * This file is part of the PHP Telegram Bot example-bot package.
+ * This file is based of the PHP Telegram Bot example-bot package.
  * https://github.com/php-telegram-bot/example-bot/
  *
  * (c) PHP Telegram Bot Team
+ * (c) 2021 - Othmane Moustaouda <web@othmanemoustaouda.io>
  *
- * For the full copyright and license information, please view the LICENSE
- * file that was distributed with this source code.
+ * Original license: `src/TelegramCommand/LICENSE_TelegramBotExample`
  */
 
 /**
@@ -25,7 +25,7 @@ use Longman\TelegramBot\Entities\ServerResponse;
 use Longman\TelegramBot\Exception\TelegramException;
 use Longman\TelegramBot\Request;
 
-class GenericmessageCommand extends SystemCommand
+class GenericMessageCommand extends SystemCommand
 {
     /**
      * @var string
@@ -54,7 +54,7 @@ class GenericmessageCommand extends SystemCommand
 
         // Handle new chat members
         if ($message->getNewChatMembers()) {
-            return $this->getTelegram()->executeCommand('newchatmembers');
+            return $this->getTelegram()->executeCommand('newchatmember');
         }
 
         // Handle left chat members
@@ -64,7 +64,7 @@ class GenericmessageCommand extends SystemCommand
 
         // The chat photo was changed
         if ($message->getNewChatPhoto()) {
-            return $this->replyToChat('😍');
+            return $this->replyToChat('Sweet! 😍');
         }
 
         return Request::emptyResponse();

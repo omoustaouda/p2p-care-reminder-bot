@@ -30,7 +30,7 @@ class TelegramBotServiceTest extends TestCase
 
     public function testSendMessage(): void
     {
-        $messageText = 'Hi there! - PHPUnit test - ' . __METHOD__;
+        $messageText = 'Hi there! - PHPUnit test - ' . __FUNCTION__ . ' - ' . gethostname();
 
         $chatId = config('telegram')['testChatId'];
         $this->service->setChatId($chatId);

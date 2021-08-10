@@ -1,13 +1,13 @@
 <?php
 
 /**
- * This file is part of the PHP Telegram Bot example-bot package.
+ * This file is based of the PHP Telegram Bot example-bot package.
  * https://github.com/php-telegram-bot/example-bot/
  *
  * (c) PHP Telegram Bot Team
+ * (c) 2021 - Othmane Moustaouda <web@othmanemoustaouda.io>
  *
- * For the full copyright and license information, please view the LICENSE
- * file that was distributed with this source code.
+ * Original license: `src/TelegramCommand/LICENSE_TelegramBotExample`
  */
 
 /**
@@ -15,7 +15,7 @@
  *
  * Gets executed when a new member joins the chat.
  *
- * NOTE: This command must be called from GenericmessageCommand.php!
+ * NOTE: This command must be called from GenericMessageCommand.php!
  * It is only in a separate command file for easier code maintenance.
  */
 
@@ -25,7 +25,7 @@ use Longman\TelegramBot\Commands\SystemCommand;
 use Longman\TelegramBot\Entities\ServerResponse;
 use Longman\TelegramBot\Exception\TelegramException;
 
-class NewchatmembersCommand extends SystemCommand
+class NewChatMemberCommand extends SystemCommand
 {
     /**
      * @var string
@@ -54,8 +54,7 @@ class NewchatmembersCommand extends SystemCommand
         $members = $message->getNewChatMembers();
 
         if ($message->botAddedInChat()) {
-            // This bot has just entered a chat
-            return $this->replyToChat('Hi there!');
+            return $this->onBotAddedToGroupChat();
         }
 
         $member_names = [];
@@ -63,6 +62,13 @@ class NewchatmembersCommand extends SystemCommand
             $member_names[] = $member->tryMention();
         }
 
-        return $this->replyToChat('Hi ' . implode(', ', $member_names) . '!');
+        return $this->replyToChat('Welcome ' . implode(', ', $member_names) . '!');
     }
+
+    public function onBotAddedToGroupChat(): ServerResponse
+    {
+        // This bot has just entered a chat
+        return $this->replyToChat('Hi everyone!');
+    }
+
 }

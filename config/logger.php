@@ -7,7 +7,7 @@ use Monolog\Logger;
 return [
     'loggerName' => APP_NAME,
     'handlers' => [
-        // Printout to stdout the logger output
+        // Print out all the logging to stdout
         new StreamHandler('php://stdout', Logger::DEBUG),
         // Create one log file per day, keep only the last 30 files.
         new RotatingFileHandler(

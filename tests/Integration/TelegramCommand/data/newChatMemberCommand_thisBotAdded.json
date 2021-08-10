@@ -1,0 +1,40 @@
+{
+  "update_id": 474615259,
+  "message": {
+    "message_id": 110,
+    "from": {
+      "id": 56653407,
+      "is_bot": false,
+      "first_name": "Othmane",
+      "username": "otho_here",
+      "language_code": "en"
+    },
+    "chat": {
+      "id": -535758690,
+      "title": "dev_p2p_care_bot",
+      "type": "group",
+      "all_members_are_administrators": true
+    },
+    "date": 1623422684,
+    "new_chat_participant": {
+      "id": 1845822449,
+      "is_bot": true,
+      "first_name": "test1-p2p-care-bot",
+      "username": "test_peer_to_peer_bot"
+    },
+    "new_chat_member": {
+      "id": 1845822449,
+      "is_bot": true,
+      "first_name": "test1-p2p-care-bot",
+      "username": "test_peer_to_peer_bot"
+    },
+    "new_chat_members": [
+      {
+        "id": 1845822449,
+        "is_bot": true,
+        "first_name": "test1-p2p-care-bot",
+        "username": "test_peer_to_peer_bot"
+      }
+    ]
+  }
+}
