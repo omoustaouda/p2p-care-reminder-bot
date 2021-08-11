@@ -60,6 +60,13 @@ class NewChatMemberCommandTest extends TestCase
             __DIR__ . '/../data/newChatMemberCommand_thisBotAdded.json'
         );
 
+        // Replace the bot name placeholder in the JSON payload with the one defined in the settings / .env file
+        $updatePostContent = str_replace(
+            '__PLACEHOLDER__bot_username',
+            config('telegram')['botUsername'],
+            $updatePostContent
+        );
+
         $expectedParams = [
             'chat_id' => '-535758690',
             'text' => 'Hi everyone!'

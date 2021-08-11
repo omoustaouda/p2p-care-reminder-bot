@@ -1,7 +1,7 @@
 <?php
 
 /**
- * This file is based of the PHP Telegram Bot example-bot package.
+ * This file is based on the PHP Telegram Bot example-bot package.
  * https://github.com/php-telegram-bot/example-bot/
  *
  * (c) PHP Telegram Bot Team
@@ -47,15 +47,10 @@ class GenericCommand extends SystemCommand
     public function execute(): ServerResponse
     {
         $message = $this->getMessage();
-//        $user_id = $message->getFrom()->getId();
         $command = $message->getCommand();
 
-//        // To enable proper use of the /whois command.
-//        // If the user is an admin and the command is in the format "/whoisXYZ", call the /whois command
-//        if (stripos($command, 'whois') === 0 && $this->telegram->isAdmin($user_id)) {
-//            return $this->telegram->executeCommand('whois');
-//        }
+        $messageText = $message->getText();
 
-        return $this->replyToChat("Command /{$command} not found.. Original message: $message");
+        return $this->replyToChat("Command /{$command} not found.. Original message: $messageText");
     }
 }

@@ -1,0 +1,28 @@
+{
+  "update_id": 474615242,
+  "message": {
+    "message_id": 59,
+    "from": {
+      "id": 56653407,
+      "is_bot": false,
+      "first_name": "Othmane",
+      "username": "otho_here",
+      "language_code": "en"
+    },
+    "chat": {
+      "id": 56653407,
+      "first_name": "Othmane",
+      "username": "otho_here",
+      "type": "private"
+    },
+    "date": 1623186529,
+    "text": "/dosomething here",
+    "entities": [
+      {
+        "offset": 0,
+        "length": 6,
+        "type": "bot_command"
+      }
+    ]
+  }
+}

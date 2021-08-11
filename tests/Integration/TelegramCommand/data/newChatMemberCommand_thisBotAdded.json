@@ -20,20 +20,20 @@
       "id": 1845822449,
       "is_bot": true,
       "first_name": "test1-p2p-care-bot",
-      "username": "test_peer_to_peer_bot"
+      "username": "__PLACEHOLDER__bot_username"
     },
     "new_chat_member": {
       "id": 1845822449,
       "is_bot": true,
       "first_name": "test1-p2p-care-bot",
-      "username": "test_peer_to_peer_bot"
+      "username": "__PLACEHOLDER__bot_username"
     },
     "new_chat_members": [
       {
         "id": 1845822449,
         "is_bot": true,
         "first_name": "test1-p2p-care-bot",
-        "username": "test_peer_to_peer_bot"
+        "username": "__PLACEHOLDER__bot_username"
       }
     ]
   }

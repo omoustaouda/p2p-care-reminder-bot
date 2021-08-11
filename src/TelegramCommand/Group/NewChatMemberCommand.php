@@ -1,7 +1,7 @@
 <?php
 
 /**
- * This file is based of the PHP Telegram Bot example-bot package.
+ * This file is based on the PHP Telegram Bot example-bot package.
  * https://github.com/php-telegram-bot/example-bot/
  *
  * (c) PHP Telegram Bot Team
@@ -24,6 +24,7 @@ namespace P2pCareReminder\TelegramCommand\Group;
 use Longman\TelegramBot\Commands\SystemCommand;
 use Longman\TelegramBot\Entities\ServerResponse;
 use Longman\TelegramBot\Exception\TelegramException;
+use P2pCareReminder\Service\TelegramBotService;
 
 class NewChatMemberCommand extends SystemCommand
 {
@@ -41,6 +42,8 @@ class NewChatMemberCommand extends SystemCommand
      * @var string
      */
     protected $version = '1.3.0';
+
+    private TelegramBotService $telegramBotService;
 
     /**
      * Main command execution
@@ -69,6 +72,8 @@ class NewChatMemberCommand extends SystemCommand
     {
         // This bot has just entered a chat
         return $this->replyToChat('Hi everyone!');
+
+        // TODO: save this chat in the DB with an UUID
     }
 
 }

@@ -10,7 +10,7 @@ use P2pCareReminder\TelegramCommand\Generic\StartCommand;
 use PHPUnit\Framework\MockObject\MockObject;
 use PHPUnit\Framework\TestCase;
 
-class StartCommandTest extends TestCase
+class HelpCommandTest extends TestCase
 {
     private Telegram $tgClient;
     private ClientInterface|MockObject $clientMock;
@@ -27,13 +27,10 @@ class StartCommandTest extends TestCase
     public function testExecute(): void
     {
         $updatePostContent = file_get_contents(
-            __DIR__ . '/../data/startCommand.json'
+            __DIR__ . '/../data/helpCommand.json'
         );
 
-        $expectedParams = [
-            'chat_id' => 56653407,
-            'text' => StartCommand::REPLY_ON_START_COMMAND
-        ];
+        $expectedContainedText = 'Commands List';
         $mockResponse = new Response(
             body: json_encode(['status' => 'ok'])
         );
@@ -44,8 +41,8 @@ class StartCommandTest extends TestCase
                 '/bot' . config('telegram')['botApiKey'] . '/' . 'sendMessage',
                 self::callback(
                     // in the second parameter, we are interested only into `form_params`, ignoring the `debug` content
-                    function ($param) use ($expectedParams) {
-                        self::assertSame($expectedParams, $param['form_params']);
+                    function ($param) use ($expectedContainedText) {
+                        self::assertStringContainsString($expectedContainedText, $param['form_params']['text']);
                     return true;
                 })
             )->willReturn($mockResponse);

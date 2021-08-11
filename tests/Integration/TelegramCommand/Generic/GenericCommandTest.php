@@ -10,7 +10,7 @@ use P2pCareReminder\TelegramCommand\Generic\StartCommand;
 use PHPUnit\Framework\MockObject\MockObject;
 use PHPUnit\Framework\TestCase;
 
-class StartCommandTest extends TestCase
+class GenericCommandTest extends TestCase
 {
     private Telegram $tgClient;
     private ClientInterface|MockObject $clientMock;
@@ -26,13 +26,18 @@ class StartCommandTest extends TestCase
 
     public function testExecute(): void
     {
+        $genericCommand = '/dosomething';
         $updatePostContent = file_get_contents(
-            __DIR__ . '/../data/startCommand.json'
+            __DIR__ . '/../data/genericCommand.json'
         );
 
         $expectedParams = [
             'chat_id' => 56653407,
-            'text' => StartCommand::REPLY_ON_START_COMMAND
+            'text' => sprintf(
+                'Command %s not found.. Original message: %s here',
+                $genericCommand,
+                $genericCommand
+            )
         ];
         $mockResponse = new Response(
             body: json_encode(['status' => 'ok'])

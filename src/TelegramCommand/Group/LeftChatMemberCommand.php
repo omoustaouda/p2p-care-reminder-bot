@@ -1,7 +1,7 @@
 <?php
 
 /**
- * This file is based of the PHP Telegram Bot example-bot package.
+ * This file is based on the PHP Telegram Bot example-bot package.
  * https://github.com/php-telegram-bot/example-bot/
  *
  * (c) PHP Telegram Bot Team
