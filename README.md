@@ -1,5 +1,4 @@
 [![Build Status](https://travis-ci.com/omoustaouda/p2p-care-reminder-bot.svg?branch=main)](https://travis-ci.com/omoustaouda/p2p-care-reminder-bot)
-[![Test Coverage](https://api.codeclimate.com/v1/badges/9397880447ea4a163aa2/test_coverage)](https://codeclimate.com/github/omoustaouda/p2p-care-reminder-bot/test_coverage)
 [![Maintainability](https://api.codeclimate.com/v1/badges/9397880447ea4a163aa2/maintainability)](https://codeclimate.com/github/omoustaouda/p2p-care-reminder-bot/maintainability)
 
 # WIP - in development
